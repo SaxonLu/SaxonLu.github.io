@@ -192,7 +192,7 @@ func main() {
 
 **流程圖**
 
-![mermaid.png]()
+![mermaid.png](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/mermaid.JPG)
 
 所以之後的操作會以SDK對Meilisearch Server行為為主
 
