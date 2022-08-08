@@ -191,14 +191,8 @@ func main() {
 這邊先提一下目前架設的環境
 
 **流程圖**
-``` mermaid
-sequenceDiagram 
-    FrontEnd->>API Server: Search Request
-    API Server->>+Meilisearch Server:Search Request
-    Meilisearch Server->>-API Server:Response
-    API Server->>API Server:Format Data
-    API Server->>FrontEnd:Response
-```
+
+![mermaid.png]()
 
 所以之後的操作會以SDK對Meilisearch Server行為為主
 
