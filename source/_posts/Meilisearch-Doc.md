@@ -163,7 +163,7 @@ func main() {
 
 ```
 
-![FreeDoc2Sample.png]()
+![FreeDoc2Sample.png](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/updateDoc.JPG)
 
 ---
 ###編輯資料
@@ -179,7 +179,9 @@ func main() {
 	client.Index("game").UpdateDocuments(documents, "")
 
 ```
-![updatedoc.png]()
+
+![updatedoc.png](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/updateDoc.JPG)
+
 ---
 
 ###搜尋
@@ -314,13 +316,16 @@ Response
 **Sample**
 
 前二字
-![top2]()
+![top2](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/top2.JPG)
+
 前三字
-![top3]()
+![top3](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/top3.JPG)
+
 中間二字
-![mid2]()
+![mid2](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/mid2.JPG)
+
 尾二字
-![end2]()
+![end2](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/end2.JPG)
 
 ---
 
@@ -367,7 +372,3 @@ client.Index("movie"). UpdateRankingRules([]string{
 
 ES 做為老牌搜索引擎，功能基本滿足，但複雜，重量級，適合大數據量且上手慢。
 Meili 設計目標針對數據在 500GB 左右的搜尋需求，極快，單文件，超輕量。
-
-第一次寫作自己的分享文
-過往都是內部文件做簡易指導而已
-所以對自己來說從中也學習到不少的東西
