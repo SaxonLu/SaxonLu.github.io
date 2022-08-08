@@ -9,7 +9,7 @@ Meili 是在挪威神話中的神，指"可愛的人"，是托爾的兄弟。
 
 ----
 
-###Preview
+### Preview
 
 搜尋速度快、全文檢索、支援中文、容易安裝和維護
 
@@ -20,7 +20,7 @@ Meili 是在挪威神話中的神，指"可愛的人"，是托爾的兄弟。
 ## Here We Go !
 
 
-###安裝Server的方式
+### 安裝Server的方式
 
 官方[Server Install Doc](https://docs.meilisearch.com/learn/getting_started/quick_start.html#setup-and-installation)有提供多種方式
 
@@ -42,8 +42,9 @@ docker run -p 7700:7700 -d MEILI_MASTER_KEY='MASTER_KEY' getmeili/meilisearch
 
 ![PostManRequestWithKeySample.png](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/imgimage-20210722152523831.png)
 
+---
 
-###匯入搜尋資料
+### 匯入搜尋資料
 
 這邊提供了兩種方式
 
@@ -60,7 +61,7 @@ docker run -p 7700:7700 -d MEILI_MASTER_KEY='MASTER_KEY' getmeili/meilisearch
 go get -u github.com/meilisearch/meilisearch-go
 ```
 
-#####批量檔案匯入
+### 批量檔案匯入
 
 ``` go
 package main
@@ -91,7 +92,7 @@ func main() {
   }
 }
 ```
-#####藉由SDK寫入
+### 藉由SDK寫入
 
 ```go
 package main
@@ -166,7 +167,8 @@ func main() {
 ![FreeDoc2Sample.png](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/freedoc.JPG)
 
 ---
-###編輯資料
+
+### 編輯資料
 
 ```go
 	documents := []map[string]interface{}{
@@ -184,7 +186,7 @@ func main() {
 
 ---
 
-###搜尋
+### 搜尋
 
 這邊先提一下目前架設的環境
 
@@ -329,7 +331,7 @@ Response
 
 ---
 
-###設置
+### 設置
 
 **停用詞**
 
@@ -358,7 +360,7 @@ client.Index("movie"). UpdateRankingRules([]string{
 
 ---
 
-###部屬
+### 部屬
 
 官方文檔提供了多種部屬文件
 
@@ -368,7 +370,7 @@ client.Index("movie"). UpdateRankingRules([]string{
 
 ---
 
-###結語
+### 結語
 
 ES 做為老牌搜索引擎，功能基本滿足，但複雜，重量級，適合大數據量且上手慢。
 Meili 設計目標針對數據在 500GB 左右的搜尋需求，極快，單文件，超輕量。
