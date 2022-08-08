@@ -163,7 +163,7 @@ func main() {
 
 ```
 
-![FreeDoc2Sample.png](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/updateDoc.JPG)
+![FreeDoc2Sample.png](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/freedoc.JPG)
 
 ---
 ###編輯資料
