@@ -353,10 +353,76 @@ client.Index("movie"). UpdateRankingRules([]string{
 另外，功能上沒有建議/關聯字（suggest），可以通過新建 index+searchableAttributes達到。
 
 ---
+### 同義字設定
+[官方文檔](https://docs.meilisearch.com/learn/configuration/synonyms.html#synonyms)
 
-### 部屬
+**Example**
 
-官方文檔提供了多種部屬文件
+``` go
+	client := meilisearch.NewClient(meilisearch.ClientConfig{
+		Host: "http://127.0.0.1:7700",
+	})
+
+	index := client.Index("testSynonyms")
+
+	documents := []map[string]interface{}{
+		{"id": 1, "title": "成語故事1", "Story": "英布漢初人，微賤的時候曾受黥（ㄑ｜ㄥˊ）刑，故又稱「黥布」。秦朝末年，英布原本跟隨項羽打天下，攻破咸陽，立下不少功勞，因此被項羽封為九江王。後來劉邦欲吸納他投效自己，安排見面時，卻故意在剛起床時召見他。英布來了之後，看到劉邦還坐在床上盥洗，感覺自己不受重視，立刻勃然大怒，後悔自己前來投效。但是等回到劉邦所賜的住所後，看到無論傢俱、食物以及侍從，規模都跟劉邦本人的一樣，英布因此而「大喜過望」。因為之前被召見時受到屈辱，現在又看到這麼多賞賜，與原本預期的不同，自然特別欣喜。後來「大喜過望」一語，就被用來形容因所得到的結果，超過原本預期而感到特別高興。"},
+		{"id": 2, "title": "自我省思管理文章1", "Story": "日本女作家兼商界聞人曾野綾子在八十多歲時，出書(熟年的才情/天下雜誌出版）論述「如何怡然自得、樂觀奮進的度過晚年？她和夫婿三浦朱門同為日本優雅老化的典範。她先不論社福或立法，直接向自己和年長者提出六項挑戰，從「要求自己」做起"},
+		{"id": 3, "title": "成語故事2", "Story": "到處充滿了怨恨的聲音。形容群眾普遍怨恨、不滿。《紅樓夢》第五六回：「那時裡外怨聲載道，豈不失了你們這樣人家的大禮。」《文明小史》第三一回：「伯集把帳一一的七折八扣算了，不管那些人叫苦連天，怨聲載道，就同了顧舉人出京。」也作「怨聲滿道」。"},
+		{"id": 4, "title": "散文1", "Story": "我以前在家時晚上總是和哥哥姑姑一起玩兒撲克牌，在這件事上我就從來不認輸。又有一次，我和他們一起玩撲克牌，玩一個非常簡單的遊戲，但是由於我最後一步的粗心，輸掉了，但是我不服氣，我要求“再戰”，於是，我們就又玩了起來，但是，我這局又輸了，我又一次不認輸，反覆的重玩，輸了好幾局，我非常的生氣，把牌扔下就走了，然後姑姑對我說，不能做什麼事情都不服氣，輸了就是輸了，這是事實，要心平氣和，不能生氣。"},
+	}
+	if _, err := index.AddDocuments(documents); err != nil {
+		fmt.Println(err)
+	}
+
+	synonyms := make(map[string][]string)
+
+	synonyms["快樂"] = []string{
+		"大喜過望",
+		"快活",
+		"狂喜",
+		"欣喜",
+	}
+	synonyms["不滿"] = []string{
+		"不平",
+		"不忿",
+		"不服氣",
+		"不順心",
+		"怨聲載道",
+	}
+
+	_, err := client.Index("testSynonyms").UpdateSynonyms(&synonyms)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+```
+
+**成果**
+
+![](TestHappySynonyms.png)
+![](TestUnHappySynonyms)
+
+---
+
+### 斷詞分字
+
+[官方文檔](https://docs.meilisearch.com/learn/advanced/tokenization.html#tokenization)
+
+主要講述針對中文他是使用了[(Jieba-RS)](https://github.com/messense/jieba-rs)這個package
+
+但針對其斷詞分字表根據這份[文件](https://specs.meilisearch.com/specifications/text/0001-script-based-tokenizer.html#future-possibilities)提到
+
+>We will want in the future to allow user configuration for the tokenizer. This is taken into account in the design of the new Tokenizer.
+
+目前*meiliSearch*並沒有對斷詞分字表開放對應的功能(API接口)，
+如果有對應的需求，依照目前的版本只能仰賴外部處理。
+
+---
+
+### 部署
+
+官方文檔提供了多種部署文件
 
 請參照
 
