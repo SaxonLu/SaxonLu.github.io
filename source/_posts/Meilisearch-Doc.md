@@ -400,8 +400,8 @@ client.Index("movie"). UpdateRankingRules([]string{
 
 **成果**
 
-![](TestHappySynonyms.png)
-![](TestUnHappySynonyms)
+![TestHappySynonyms.png](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/TestHappySynonyms.JPG)
+![TestUnHappySynonyms](https://raw.githubusercontent.com/SaxonLu/SaxonLu.github.io/main/data/img/testUnHappySynonyms.JPG)
 
 ---
 
